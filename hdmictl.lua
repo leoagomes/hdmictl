@@ -1,7 +1,8 @@
 #!/usr/bin/env lua
 
 xrandr = "xrandr "
-mode_filename = "/home/leonardogomes/.config/i3/.hdmictl_data"
+homedir = os.getenv("HOME") or "."
+mode_filename = homedir .. "/.hdmimode"
 
 function list_monitors()
 	local lmp, md, ml, ret
@@ -91,8 +92,7 @@ function auto_setup()
 	return false
 end
 
-function load_cfg(fname) -- TODO: sandbox environment
-	local chunk, cfg
+function load_cfg(fname) -- TODO: sandbox environment	local chunk, cfg
 
 	chunk = loadfile(fname)
 	cfg = chunk()
@@ -127,7 +127,7 @@ function main()
 
 	if config_fname == nil then
 		print("no config file passed, loading default")
-		config_fname = "~/.hdmiconfig.lua"
+		config_fname = homedir .. "/.hdmicfg.lua"
 	end
 
 	if command == nil then

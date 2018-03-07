@@ -65,10 +65,8 @@ function change_mode(modename)
 		return
 	end
 
-	for k, v in pairs(params) do
-		if k ~= 'minimum' and k ~= 'main' then
-			run_monitor_config(k, v)
-		end
+	for i,v in ipairs(params.run_order) do
+		run_monitor_config(v, params[v])
 	end
 end
 

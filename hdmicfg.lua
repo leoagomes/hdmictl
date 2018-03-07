@@ -6,6 +6,7 @@ return {
 	["solo"] = {
 		minimum = 1,
 		main = "LVDS1",
+		run_order = {"LVDS1", "HDMI1"},
 		["HDMI1"] = {
 			"--auto",
 			"--off",
@@ -17,6 +18,7 @@ return {
 	["multi-s2"] = {
 		minimum = 2,
 		main = "LVDS1",
+		run_order = {"LVDS1", "HDMI1"},
 		["HDMI1"] = {
 			"--auto",
 			["left-of"] = "LVDS1",
